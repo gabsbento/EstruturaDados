@@ -18,10 +18,15 @@ public class Vetor {
         }
         throw new RuntimeException("Capacidade maxima atingida");
     }
+    public String busca(int posicao)throws IllegalArgumentException{
+        if(!(posicao >= 0 && posicao < tamanho)){
+            throw new IllegalArgumentException("Posição inválida");
+        }
+        return this.elementos[posicao];
+    }
     public int getTamanho(){
         return this.tamanho;
     }
-
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
