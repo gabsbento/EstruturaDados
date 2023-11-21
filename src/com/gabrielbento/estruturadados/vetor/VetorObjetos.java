@@ -1,14 +1,15 @@
 package com.gabrielbento.estruturadados.vetor;
 
-public class Vetor {
-    private String[] elementos;
+public class VetorObjetos {
+
+    private Object[] elementos;
     private int tamanho;
 
-    public Vetor(int capacidade){
-        this.elementos = new String[capacidade];
+    public VetorObjetos(int capacidade){
+        this.elementos = new Object[capacidade];
         this.tamanho = 0;
     }
-    public boolean adiciona(String elemento) throws RuntimeException{
+    public boolean adiciona(Object elemento) throws RuntimeException{
         this.aumentaCapacidade();
         if(this.tamanho < this.elementos.length){
             this.elementos[this.tamanho] = elemento;
@@ -18,7 +19,7 @@ public class Vetor {
         throw new RuntimeException("Capacidade maxima atingida");
     }
 
-    public boolean adiciona(int posicao, String elemento){
+    public boolean adiciona(int posicao, Object elemento){
         if(!(posicao >= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Posição inválida");
         }
@@ -33,12 +34,12 @@ public class Vetor {
 
     private void aumentaCapacidade(){
         if(this.tamanho == this.elementos.length){
-            String[] elementosNovos = new String[this.elementos.length * 2];
+            Object[] elementosNovos = new Object[this.elementos.length * 2];
             System.arraycopy(this.elementos, 0, elementosNovos, 0, this.elementos.length);
             this.elementos = elementosNovos;
         }
     }
-    public String busca(int posicao)throws IllegalArgumentException{
+    public Object busca(int posicao)throws IllegalArgumentException{
         if(!(posicao >= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Posição inválida");
         }
@@ -55,7 +56,7 @@ public class Vetor {
         this.tamanho--;
     }
 
-    public int busca(String elemento){
+    public int busca(Object elemento){
         for(int i= 0; i < this.tamanho; i++){
             if(this.elementos[i].equals(elemento)){
                 return i;
