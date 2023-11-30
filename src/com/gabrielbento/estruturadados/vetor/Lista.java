@@ -71,6 +71,10 @@ public class Lista<T> {
         }
         return -1;
     }
+
+    public boolean contem(T elemento){
+        return this.busca(elemento) != -1;
+    }
     public int getTamanho(){
         return this.tamanho;
     }
