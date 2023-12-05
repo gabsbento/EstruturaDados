@@ -46,13 +46,15 @@ public class Lista<T> {
             this.elementos = elementosNovos;
         }
     }
-    public Object busca(int posicao)throws IllegalArgumentException{
+    public T busca(int posicao)throws IllegalArgumentException{
         if(!(posicao >= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Posição inválida");
         }
         return this.elementos[posicao];
     }
-
+    public T obtem(int posicao){
+        return this.busca(posicao);
+    }
     public void remove(int posicao){
         if(!(posicao >= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("Posição inválida");
