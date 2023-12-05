@@ -84,6 +84,12 @@ public class Lista<T> {
         }
         return -1;
     }
+    public void remove(T elemento){
+        int posicao = this.busca(elemento);
+        if(posicao != -1){
+            this.remove(posicao);
+        }
+    }
     public int getTamanho(){
         return this.tamanho;
     }
